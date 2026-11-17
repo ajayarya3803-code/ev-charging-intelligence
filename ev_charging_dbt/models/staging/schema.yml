@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_vehicles
+    columns:
+      - name: vehicle_id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: source('silver', 'customers')
+                field: customer_id
+
+  - name: stg_charging_stations
+    columns:
+      - name: station_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_charging_sessions
+    columns:
+      - name: session_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_transactions
+    columns:
+      - name: transaction_id
+        data_tests:
+          - unique
+          - not_null

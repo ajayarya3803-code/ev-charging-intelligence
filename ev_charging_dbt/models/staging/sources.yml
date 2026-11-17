@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: silver
+    catalog: dbw_ev_charging_dev
+    schema: silver
+
+    tables:
+      - name: customers
+      - name: vehicles
+      - name: charging_stations
+      - name: charging_sessions
+      - name: transactions
